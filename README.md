@@ -36,6 +36,13 @@ Edit by: https://github.com/exsycore
 
 ![หลังใช้งาน](https://i.imgur.com/UiuOF5B.png)
 
+* การติดตั้ง
+```Pawn
+#include <open.mp>
+#define cec_auto
+#include <cec>
+```
+
 ## การบิ้ว
 
 ## Sources
