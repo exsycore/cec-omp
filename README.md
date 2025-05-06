@@ -23,3 +23,14 @@ Edit by: https://github.com/exsycore
       cec.inc
 `
 
+## การบิ้ว (ใครที่ไม่ได้จะนำไปพัฒนาต่อข้ามไปได้เลย)
+
+* โคลนที่เก็บไฟล์
+
+	`git clone https://github.com/exsycore/cec-omp.git`
+
+* Building on Windows
+ `mkdir build
+  cd build
+  cmake .. -A Win32 -T ClangCL`
+    
