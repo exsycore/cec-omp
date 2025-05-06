@@ -9,8 +9,15 @@ Edit by: https://github.com/exsycore
 ปลั๊กอิน CEC ช่วยเลื่อนแท็กสีให้แสดงผลได้อย่างถูกต้อง
 
 ## การติดตั้ง (open.mp)
+* นำไฟล์ [cec-omp.dll](cec-omp.dll) ใส่ในโฟลเดอร์ components ของคุณ
 `
   GameMode\
     components\
       cec-omp.dll
+`
+* นำไฟล์ [cec.inc](cec.inc) ใส่ในโฟลเดอร์ Includes ของคุณ
+`
+  qawno\
+    include\
+      cec.inc
 `
