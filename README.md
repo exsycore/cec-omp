@@ -10,12 +10,14 @@ Edit by: https://github.com/exsycore
 
 ## การติดตั้ง (open.mp)
 * นำไฟล์ [cec-omp.dll](cec-omp.dll) ใส่ในโฟลเดอร์ components ของคุณ
+* 
 `
   GameMode\
     components\
       cec-omp.dll
 `
 * นำไฟล์ [cec.inc](cec.inc) ใส่ในโฟลเดอร์ Includes ของคุณ
+* 
 `
   qawno\
     include\
