@@ -1,5 +1,5 @@
-# ColourFix-omp
 Author: https://github.com/qqwrv-f10eq
+
 Edit by: https://github.com/exsycore
 
 # Color Embed Converter
