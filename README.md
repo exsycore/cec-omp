@@ -50,6 +50,13 @@ Edit by: https://github.com/exsycore
 git clone https://github.com/exsycore/cec-omp.git
 ```
 
+## Lib
+```bash
+https://github.com/openmultiplayer/open.mp-sdk
+https://github.com/openmultiplayer/compiler
+https://github.com/openmultiplayer/pawn-natives
+```
+
 ## Building on Windows
 ```bash
 mkdir build
