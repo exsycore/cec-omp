@@ -25,12 +25,16 @@ Edit by: https://github.com/exsycore
 
 ## การบิ้ว (ใครที่ไม่ได้จะนำไปพัฒนาต่อข้ามไปได้เลย)
 
-* โคลนที่เก็บไฟล์
+## Sources
+```bash
+git clone https://github.com/exsycore/cec-omp.git
+```
 
-	`git clone https://github.com/exsycore/cec-omp.git`
-
-* Building on Windows
- `mkdir build
-  cd build
-  cmake .. -A Win32 -T ClangCL`
+## Building on Windows
+```bash
+mkdir build
+cd build
+cmake .. -A Win32 -T ClangCL
+```
+Open Visual Studio and build the solution.
     
