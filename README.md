@@ -23,6 +23,19 @@ Edit by: https://github.com/exsycore
       cec.inc
 `
 
+## ตัวอย่าง
+**ปัญหาและการติดตั้ง**
+
+* ปัญหา
+
+ก่อนใช้งาน
+
+![ก่อนใช้งาน](https://i.imgur.com/M14TACI.png)
+
+หลังใช้งาน
+
+![หลังใช้งาน](https://i.imgur.com/UiuOF5B.png)
+
 ## การบิ้ว (ใครที่ไม่ได้จะนำไปพัฒนาต่อข้ามไปได้เลย)
 
 ## Sources
