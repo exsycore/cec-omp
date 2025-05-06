@@ -23,22 +23,28 @@ private:
 	IPawnComponent *pawn_;
 
 public:
-	PROVIDE_UID(0xE6F68FA408610254);
+	PROVIDE_UID(0x55D38CB65D394195);
 
 	StringView componentName() const override
 	{
-		return "Colour Fix";
+		return "ColourFix";
 	}
 
 	SemanticVersion componentVersion() const override
 	{
-		return SemanticVersion(0, 0, 1, 0);
+		return SemanticVersion(2, 6, 1, 0);
 	}
 
 	void onLoad(ICore* c) override
 	{
 		core_ = c;
-		core_->printLn("ColourFix loaded.");
+		core_->printLn("    < cec 2.6 (open.mp) | Copyright 2020-2025 > ");
+		core_->printLn("     Author: Ak-kawit \"B-Less\" Tahae");
+		core_->printLn("     Editor: EasyCore \"E-Core\" .....");
+		core_->printLn("   Repository: https://github.com/Brian-Less/cec");
+		core_->printLn("   Repository: https://github.com/exsycore/cec-omp");
+		core_->printLn(" ");
+		core_->printLn("      --------------------------------");
 	}
 
 	void onInit(IComponentList *components) override
@@ -82,7 +88,7 @@ public:
 	}
 
 	void onAmxLoad(IPawnScript &script) override
-	{
+	{	
 		AMX* amx = script.GetAMX();
 		
 		amx_Register(amx, natives, -1);
