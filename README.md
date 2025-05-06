@@ -36,7 +36,7 @@ Edit by: https://github.com/exsycore
 
 ![หลังใช้งาน](https://i.imgur.com/UiuOF5B.png)
 
-## การบิ้ว (ใครที่ไม่ได้จะนำไปพัฒนาต่อข้ามไปได้เลย)
+## การบิ้ว
 
 ## Sources
 ```bash
