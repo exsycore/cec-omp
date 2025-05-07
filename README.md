@@ -1,6 +1,6 @@
-Author: (Brian-Less)[https://github.com/qqwrv-f10eq]
+Author: [Brian-Less](https://github.com/qqwrv-f10eq)
 
-Edit by: (EasyCore)[https://github.com/exsycore]
+Edit by: [EasyCore](https://github.com/exsycore)
 
 # Color Embed Converter
 
