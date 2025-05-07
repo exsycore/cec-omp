@@ -55,7 +55,7 @@ unsigned char vowel[] = { 0xd1, 0xd4, 0xd5, 0xd6, 0xd7, 0xd8, 0xd9, 0xda, 0xe7, 
 unsigned char bugSaraI[] = { '\n', '\r', '\t' };
 unsigned char SaraAir[] = { 0xD4, 0xD5, 0xD6, 0xD7 };
 
-char* subc(const char* input, int offset, int len, char* dest)
+char* subc(const char* input, int offset, int len, char* dest, size_t dest_size)
 {
 	int input_len = strlen(input);
 
@@ -63,7 +63,8 @@ char* subc(const char* input, int offset, int len, char* dest)
 	{
 		return NULL;
 	}
-	strncpy(dest, input + offset, len);
+	strncpy_s(dest, dest_size, input + offset, len);
+	dest[len] = '\0';
 	return dest;
 }
 
@@ -120,7 +121,7 @@ int shiftRight(char text[], char color[], int Pos, int shiftBy)
 	return Pos + count;
 }
 
-cell AMX_NATIVE_CALL Natives::CE_Convert(AMX* amx, const cell* params)
+int AMX_NATIVE_CALL Natives::CE_Convert(AMX* amx, cell* params)
 {
 	int
 		len = 0;
@@ -150,8 +151,8 @@ cell AMX_NATIVE_CALL Natives::CE_Convert(AMX* amx, const cell* params)
 			next_space = i + 7;
 			if (text[i] == '{' && next_space < j && text[next_space] == '}')
 			{
-				char EmbledColor[6];
-				subc(text, i + 1, 6, EmbledColor);
+				char EmbledColor[7];
+				subc(text, i + 1, 6, EmbledColor, sizeof(EmbledColor));
 				for (int x = last_check + 1; x < i; x++)
 				{
 					if (memchr(vowel, text[x], sizeof(vowel)))
@@ -209,7 +210,7 @@ cell AMX_NATIVE_CALL Natives::CE_Convert(AMX* amx, const cell* params)
 	return 1;
 }
 
-cell AMX_NATIVE_CALL Natives::CE_Convert_Dialog(AMX *amx, const cell *params)
+int AMX_NATIVE_CALL Natives::CE_Convert_Dialog(AMX *amx, cell *params)
 {
 	int
 		len = 0;
@@ -260,8 +261,8 @@ cell AMX_NATIVE_CALL Natives::CE_Convert_Dialog(AMX *amx, const cell *params)
 
 			if (text[i] == '{' && next_space < j && text[next_space] == '}') 
 			{
-				char EmbledColor[6];
-				subc(text, i + 1, 6, EmbledColor);
+				char EmbledColor[7];
+				subc(text, i + 1, 6, EmbledColor, sizeof(EmbledColor));
 				for (int x = last_check + 1; x < i; x++) 
 				{
 					if (memchr(vowel, text[x], sizeof(vowel)))
@@ -324,7 +325,7 @@ cell AMX_NATIVE_CALL Natives::CE_Convert_Dialog(AMX *amx, const cell *params)
 	return 1;
 }
 
-cell AMX_NATIVE_CALL Natives::CE_CountTag(AMX *amx, const cell *params)
+int AMX_NATIVE_CALL Natives::CE_CountTag(AMX *amx, cell *params)
 {
 	int
 		len = 0,
@@ -356,7 +357,7 @@ cell AMX_NATIVE_CALL Natives::CE_CountTag(AMX *amx, const cell *params)
 	return tag_found;
 }
 
-cell AMX_NATIVE_CALL Natives::CE_CountVowel(AMX *amx, const cell *params)
+int AMX_NATIVE_CALL Natives::CE_CountVowel(AMX *amx, cell *params)
 {
 	int
 		len = 0,
