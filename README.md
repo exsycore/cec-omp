@@ -1,6 +1,6 @@
-Author: https://github.com/qqwrv-f10eq
+Author: (Brian-Less)[https://github.com/qqwrv-f10eq]
 
-Edit by: https://github.com/exsycore
+Edit by: (EasyCore)[https://github.com/exsycore]
 
 # Color Embed Converter
 
@@ -54,6 +54,7 @@ git clone https://github.com/exsycore/cec-omp.git
 
 ## Lib
 ```bash
+https://github.com/qqwrv-f10eq (samp-plugin-sdk)
 https://github.com/openmultiplayer/open.mp-sdk
 https://github.com/openmultiplayer/compiler
 https://github.com/openmultiplayer/pawn-natives
