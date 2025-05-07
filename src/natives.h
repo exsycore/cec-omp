@@ -4,16 +4,18 @@
 #include <string>
 #include <string.h>
 
-#include <sdk.hpp>
+#include "sdk.hpp"
 
-#include "amx/amx.h"
+#include <amx/amx2.h>
+
+extern void* pAMXFunctions;
 
 namespace Natives
 {
-    cell AMX_NATIVE_CALL CE_Convert(AMX* amx, const cell* params);
-    cell AMX_NATIVE_CALL CE_Convert_Dialog(AMX* amx, const cell* params);
-    cell AMX_NATIVE_CALL CE_CountTag(AMX* amx, const cell* params);
-    cell AMX_NATIVE_CALL CE_CountVowel(AMX* amx, const cell* params);
+    int CE_Convert(AMX* amx, cell* params);
+    int CE_Convert_Dialog(AMX* amx, cell* params);
+    int CE_CountTag(AMX* amx, cell* params);
+    int CE_CountVowel(AMX* amx, cell* params);
 }
 
 #endif
