@@ -58,8 +58,7 @@ git clone https://github.com/exsycore/cec-omp.git
 ```bash
 https://github.com/qqwrv-f10eq (samp-plugin-sdk)
 https://github.com/openmultiplayer/open.mp-sdk
-https://github.com/openmultiplayer/compiler
-https://github.com/openmultiplayer/pawn-natives
+https://github.com/openmultiplayer/open.mp-gdk
 ```
 
 ## Building on Windows
