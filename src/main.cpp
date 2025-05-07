@@ -1,8 +1,6 @@
-#include <sdk.hpp>
+#include "sdk.hpp"
 
 #include "Server/Components/Pawn/pawn.hpp"
-#include <Server/Components/Pawn/Impl/pawn_natives.hpp>
-#include <Server/Components/Pawn/Impl/pawn_impl.hpp>
 
 #include "natives.h"
 
@@ -15,29 +13,31 @@ AMX_NATIVE_INFO natives[] =
 	{ 0, 0 }
 };
 
-class ColourFix final : public IComponent, public PawnEventHandler
+class ColourFix final : public IComponent, public CoreEventHandler, public PawnEventHandler
 {
 private:
 	ICore *core_ = nullptr;
 
-	IPawnComponent *pawn_;
+	IPawnComponent *pawn_ = nullptr;
 
 public:
 	PROVIDE_UID(0x55D38CB65D394195);
 
 	StringView componentName() const override
 	{
-		return "ColourFix";
+		return "open.mp colourfix";
 	}
 
 	SemanticVersion componentVersion() const override
 	{
-		return SemanticVersion(2, 6, 1, 0);
+		return SemanticVersion(2, 6, 0, 2);
 	}
 
 	void onLoad(ICore* c) override
 	{
 		core_ = c;
+		core_->printLn("      --------------------------------");
+		core_->printLn(" ");
 		core_->printLn("    < cec 2.6 (open.mp) | Copyright 2020-2025 > ");
 		core_->printLn("     Author: Ak-kawit \"B-Less\" Tahae");
 		core_->printLn("     Editor: EasyCore \"E-Core\" .....");
@@ -51,39 +51,29 @@ public:
 	{
 		pawn_ = components->queryComponent<IPawnComponent>();
 
-		if (pawn_)
+		if (pawn_ == nullptr)
 		{
-			setAmxFunctions(pawn_->getAmxFunctions());
+			StringView name = componentName();
+			core_->logLn(
+				LogLevel::Error,
+				"Error loading component %.*s: Pawn component not loaded",
+				name.length(),
+				name.data()
+			);
 
-			setAmxLookups(components);
-
-			pawn_->getEventDispatcher().addEventHandler(this);
+			return;
 		}
+
+		pawn_->getEventDispatcher().addEventHandler(this);
+		core_->getEventDispatcher().addEventHandler(this);
+		pAMXFunctions = (void*)&pawn_->getAmxFunctions();
 	}
 
 	void onReady() override
 	{
 	}
 
-	void onFree(IComponent *component) override
-	{
-		if (component == pawn_)
-		{
-
-			pawn_ = nullptr;
-
-			setAmxFunctions();
-
-			setAmxLookups();
-		}
-	}
-
-	void free() override
-	{
-		delete this;
-	}
-
-	void reset() override
+	void onTick(Microseconds elapsed, TimePoint now) override
 	{
 	}
 
@@ -96,7 +86,32 @@ public:
 
 	void onAmxUnload(IPawnScript &script) override
 	{
-		
+	}
+
+	void onFree(IComponent *component) override
+	{
+		if (component == pawn_)
+		{
+
+			pawn_ = nullptr;
+			pAMXFunctions = nullptr;
+			core_->printLn("\n\n*** ColourFix Plugin v2.6 unloaded ***\n\n");
+		}
+	}
+
+	void free() override
+	{
+		if (pawn_ != nullptr)
+		{
+			pawn_->getEventDispatcher().removeEventHandler(this);
+			core_->getEventDispatcher().removeEventHandler(this);
+		}
+
+		delete this;
+	}
+
+	void reset() override
+	{
 	}
 
 	~ColourFix()
