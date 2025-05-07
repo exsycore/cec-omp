@@ -1,4 +1,13 @@
-#include "natives.h"
+/*
+# natives.cpp
+
+This source file contains the bridge between natives and implementations. I
+prefer to keep the actual implementation separate. The implementation contains
+no instances of `cell` or `AMX*` and is purely C++ and external library code.
+The code here acts as the translation between AMX data types and native types.
+*/
+
+#include "natives.hpp"
 
 unsigned char igor_spaces[] = { ' ', '\r', '\n', '\t' };
 unsigned char spaces[] = { ' ', '\r', '\t' };
@@ -35,7 +44,7 @@ unsigned char spaces[] = { ' ', '\r', '\t' };
 
 
 	// Bug: 'Bud' (Rarely)
-	// ÍÔºÑµÔ <--
+	// อิบัติ <--
 
 	char
 		+
@@ -121,7 +130,7 @@ int shiftRight(char text[], char color[], int Pos, int shiftBy)
 	return Pos + count;
 }
 
-int AMX_NATIVE_CALL Natives::CE_Convert(AMX* amx, cell* params)
+int Natives::CE_Convert(AMX* amx, cell* params)
 {
 	int
 		len = 0;
@@ -158,7 +167,7 @@ int AMX_NATIVE_CALL Natives::CE_Convert(AMX* amx, cell* params)
 					if (memchr(vowel, text[x], sizeof(vowel)))
 					{
 
-						// ÔÑÔ -44 -47 -44
+						// ิัิ -44 -47 -44
 						if ((text[x] & 0xD4) == 0xD4 && text[x - 2] == -47 && text[x - 4] == -44 && onetime_fix_bud == 0)
 						{
 							onetime_fix_bud = 1;
@@ -189,7 +198,7 @@ int AMX_NATIVE_CALL Natives::CE_Convert(AMX* amx, cell* params)
 								continue;
 							}
 
-							if ((text[x] & 0xE9) == 0xE9 && (text[x - 1] & 0xD5) == 0xD5 && (text[x - 2]) == -95) // ¡Õé
+							if ((text[x] & 0xE9) == 0xE9 && (text[x - 1] & 0xD5) == 0xD5 && (text[x - 2]) == -95) // กี้
 							{
 								continue;
 							}
@@ -210,7 +219,7 @@ int AMX_NATIVE_CALL Natives::CE_Convert(AMX* amx, cell* params)
 	return 1;
 }
 
-int AMX_NATIVE_CALL Natives::CE_Convert_Dialog(AMX *amx, cell *params)
+int Natives::CE_Convert_Dialog(AMX *amx, cell *params)
 {
 	int
 		len = 0;
@@ -267,7 +276,7 @@ int AMX_NATIVE_CALL Natives::CE_Convert_Dialog(AMX *amx, cell *params)
 				{
 					if (memchr(vowel, text[x], sizeof(vowel)))
 					{
-						// ÔÑÔ -44 -47 -44
+						// ิัิ -44 -47 -44
 						if ((text[x] & 0xD4) == 0xD4 && text[x - 2] == -47 && text[x - 4] == -44 && onetime_fix_bud == 0)
 						{
 							onetime_fix_bud = 1;
@@ -297,7 +306,7 @@ int AMX_NATIVE_CALL Natives::CE_Convert_Dialog(AMX *amx, cell *params)
 								continue;
 							}
 
-							if ((text[x] & 0xE9) == 0xE9 && (text[x - 1] & 0xD5) == 0xD5 && (text[x - 2]) == -95) // ¡Õé
+							if ((text[x] & 0xE9) == 0xE9 && (text[x - 1] & 0xD5) == 0xD5 && (text[x - 2]) == -95) // กี้
 							{
 								continue;
 							}
@@ -325,7 +334,7 @@ int AMX_NATIVE_CALL Natives::CE_Convert_Dialog(AMX *amx, cell *params)
 	return 1;
 }
 
-int AMX_NATIVE_CALL Natives::CE_CountTag(AMX *amx, cell *params)
+int Natives::CE_CountTag(AMX *amx, cell *params)
 {
 	int
 		len = 0,
@@ -357,7 +366,7 @@ int AMX_NATIVE_CALL Natives::CE_CountTag(AMX *amx, cell *params)
 	return tag_found;
 }
 
-int AMX_NATIVE_CALL Natives::CE_CountVowel(AMX *amx, cell *params)
+int Natives::CE_CountVowel(AMX *amx, cell *params)
 {
 	int
 		len = 0,
