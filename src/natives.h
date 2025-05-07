@@ -1,16 +1,20 @@
-#ifndef NATIVES_H
-#define NATIVES_H
+/*
+# natives.hpp
+
+Contains all the `PAWN_NATIVE_DECL` for native function declarations.
+*/
+
+#ifndef CEC_NATIVES_H
+    #define CEC_NATIVES_H
 
 #include <string>
 #include <string.h>
 
-#include "sdk.hpp"
-
 #include <amx/amx2.h>
 
-extern void* pAMXFunctions;
+#include "common.hpp"
 
-namespace Natives
+namespace Natives 
 {
     int CE_Convert(AMX* amx, cell* params);
     int CE_Convert_Dialog(AMX* amx, cell* params);
