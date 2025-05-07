@@ -9,6 +9,8 @@ Edit by: [EasyCore](https://github.com/exsycore)
 ปลั๊กอิน CEC ช่วยเลื่อนแท็กสีให้แสดงผลได้อย่างถูกต้อง
 
 ## การติดตั้ง (open.mp)
+* ติดตั้ง [VC++](https://aka.ms/vs/17/release/vc_redist.x86.exe)
+
 * นำไฟล์ [cec-omp.dll](cec-omp.dll), [pawnraknet.dll](https://github.com/katursis/Pawn.RakNet/releases/tag/1.6.0-omp) ใส่ในโฟลเดอร์ components ของคุณ (ไม่ต้องเพิ่มอะไร config.json สามารถใช้งานได้เลย)
 * `
   GameMode\
