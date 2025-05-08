@@ -7,7 +7,7 @@
 
 class ColourFix final : public IComponent, public CoreEventHandler, public PawnEventHandler
 {
-        PROVIDE_UID(0xBC4C07566F9769D9);
+        PROVIDE_UID(/*UID*/);
 
         StringView componentName() const override
         {
